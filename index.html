@@ -20,6 +20,8 @@
     --red: #c0392b;
     --green: #4a7c59;
     --amber: #c09a3a;
+    --blue: #7a9bb5;
+    --purple: #9b7ab5;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -32,7 +34,6 @@
     min-height: 100vh;
   }
 
-  /* ── HEADER ── */
   .header {
     background: var(--dark);
     border-bottom: 1px solid var(--border);
@@ -69,12 +70,7 @@
     font-family: 'DM Mono', monospace;
   }
 
-  .header-stats {
-    display: flex;
-    gap: 20px;
-    flex-shrink: 0;
-  }
-
+  .header-stats { display: flex; gap: 20px; flex-shrink: 0; }
   .stat { text-align: right; }
 
   .stat-num {
@@ -92,7 +88,6 @@
     font-family: 'DM Mono', monospace;
   }
 
-  /* ── TABS ── */
   .tabs {
     display: flex;
     border-bottom: 1px solid var(--border);
@@ -113,9 +108,7 @@
     color: var(--muted);
     cursor: pointer;
     border-bottom: 2px solid transparent;
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border-top: none; border-left: none; border-right: none;
     background: none;
     transition: all 0.2s;
     white-space: nowrap;
@@ -124,90 +117,34 @@
   .tab:hover { color: var(--white); }
   .tab.active { color: var(--olive-light); border-bottom-color: var(--olive-light); }
 
-  /* ── MAIN ── */
-  .main {
-    padding: 24px 16px;
-    max-width: 1400px;
-  }
+  .main { padding: 24px 16px; max-width: 1400px; }
 
-  @media (min-width: 640px) {
-    .main { padding: 32px 24px; }
-  }
-
+  @media (min-width: 640px) { .main { padding: 32px 24px; } }
   @media (min-width: 1024px) {
     .header { padding: 32px 48px 28px; flex-direction: row; align-items: flex-end; }
-    .header-top { flex: 1; flex-direction: row; }
+    .header-top { flex: 1; }
     .main { padding: 40px 48px; }
     .tab { padding: 14px 24px; font-size: 12px; }
   }
 
-  /* ── VIEWS ── */
   .view { display: none; }
   .view.active { display: block; }
 
-  /* ── LEGEND ── */
-  .legend {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 24px;
-    flex-wrap: wrap;
-  }
-
-  .legend-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 11px;
-    color: var(--muted);
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-  }
-
+  .legend { display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); font-family: 'DM Mono', monospace; letter-spacing: 1px; text-transform: uppercase; }
   .legend-dot { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
   .dot-question { background: var(--olive-light); }
   .dot-story { background: var(--tan); }
-  .dot-human { background: #7a9bb5; }
-  .dot-article { background: #9b7ab5; }
+  .dot-human { background: var(--blue); }
+  .dot-article { background: var(--purple); }
 
-  /* ── PROGRESS ── */
-  .progress-section {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 20px;
-    margin-bottom: 24px;
-    border-radius: 2px;
-  }
-
-  .progress-label {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-    gap: 4px;
-  }
-
+  .progress-section { background: var(--card); border: 1px solid var(--border); padding: 20px; margin-bottom: 24px; border-radius: 2px; }
+  .progress-label { display: flex; justify-content: space-between; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; flex-wrap: wrap; gap: 4px; }
   .progress-bar { height: 4px; background: var(--border); border-radius: 2px; overflow: hidden; }
   .progress-fill { height: 100%; background: var(--olive-light); border-radius: 2px; transition: width 0.5s ease; }
 
-  /* ── POST CARDS ── */
   .month-section { margin-bottom: 40px; }
-
-  .month-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 28px;
-    letter-spacing: 3px;
-    color: var(--olive-light);
-    margin-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 10px;
-  }
-
+  .month-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--olive-light); margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
   .post-list { display: flex; flex-direction: column; gap: 10px; }
 
   .post-card {
@@ -225,30 +162,13 @@
 
   .post-card:active { opacity: 0.85; }
   .post-card.story { border-left-color: var(--tan); }
-  .post-card.human { border-left-color: #7a9bb5; }
-  .post-card.article { border-left-color: #9b7ab5; }
+  .post-card.human { border-left-color: var(--blue); }
+  .post-card.article { border-left-color: var(--purple); }
   .post-card.posted { opacity: 0.45; }
 
-  .post-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .post-card-meta {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-  }
-
-  .post-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-  }
+  .post-card-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+  .post-card-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .post-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); }
 
   .post-type-badge {
     display: inline-block;
@@ -262,30 +182,14 @@
     color: var(--olive-light);
     white-space: nowrap;
   }
-
   .post-type-badge.story { background: #4a3a28; color: var(--tan); }
-  .post-type-badge.human { background: #28384a; color: #7a9bb5; }
-  .post-type-badge.article { background: #3a2848; color: #9b7ab5; }
+  .post-type-badge.human { background: #28384a; color: var(--blue); }
+  .post-type-badge.article { background: #3a2848; color: var(--purple); }
 
-  .post-content h3 {
-    font-size: 14px;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 4px;
-    line-height: 1.4;
-  }
+  .post-content h3 { font-size: 14px; font-weight: 500; color: var(--white); margin-bottom: 4px; line-height: 1.4; }
+  .post-content p { font-size: 13px; color: var(--muted); line-height: 1.55; }
 
-  .post-content p {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-
-  .post-actions {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
+  .post-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 
   .btn {
     padding: 8px 14px;
@@ -304,21 +208,17 @@
   }
 
   .btn:hover { border-color: var(--olive-light); color: var(--olive-light); }
-
   .btn.btn-done { border-color: var(--green); color: var(--green); }
   .btn.btn-done:hover { background: var(--green); color: var(--white); }
   .btn.btn-edit { border-color: var(--amber); color: var(--amber); }
   .btn.btn-edit:hover { background: var(--amber); color: var(--black); }
+  .btn.btn-danger { border-color: var(--red); color: var(--red); }
+  .btn.btn-danger:hover { background: var(--red); color: var(--white); }
+  .btn.btn-primary-sm { border-color: var(--olive-light); color: var(--olive-light); }
+  .btn.btn-primary-sm:hover { background: var(--olive-light); color: var(--black); }
 
   @media (min-width: 768px) {
-    .post-card {
-      display: grid;
-      grid-template-columns: 130px 1fr auto;
-      grid-template-rows: auto auto;
-      gap: 0 20px;
-      align-items: start;
-      padding: 18px 22px;
-    }
+    .post-card { display: grid; grid-template-columns: 130px 1fr auto; gap: 0 20px; align-items: start; padding: 18px 22px; }
     .post-card-top { grid-column: 1 / -1; margin-bottom: 8px; }
     .post-card-meta { grid-column: 1; flex-direction: column; align-items: flex-start; gap: 6px; }
     .post-content { grid-column: 2; }
@@ -326,87 +226,23 @@
   }
 
   /* ── CALENDAR ── */
-  .calendar-header {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-    margin-bottom: 2px;
-  }
-
-  .cal-day-label {
-    text-align: center;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 1px;
-    color: var(--muted);
-    padding: 6px 0;
-    text-transform: uppercase;
-  }
-
-  .calendar-grid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
-  }
-
-  .cal-cell {
-    background: var(--card);
-    border: 1px solid var(--border);
-    min-height: 60px;
-    padding: 6px;
-    position: relative;
-    transition: border-color 0.2s;
-  }
-
+  .calendar-header { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; margin-bottom: 2px; }
+  .cal-day-label { text-align: center; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; color: var(--muted); padding: 6px 0; text-transform: uppercase; }
+  .calendar-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 2px; }
+  .cal-cell { background: var(--card); border: 1px solid var(--border); min-height: 60px; padding: 6px; transition: border-color 0.2s; }
   @media (min-width: 640px) { .cal-cell { min-height: 90px; padding: 8px; } }
   @media (min-width: 1024px) { .cal-cell { min-height: 110px; padding: 10px; } }
-
   .cal-cell:hover { border-color: var(--olive-dim); }
   .cal-cell.empty { background: var(--dark); opacity: 0.3; }
-  .cal-cell.today { border-color: var(--olive-light); }
-
-  .cal-date {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    margin-bottom: 4px;
-  }
-
-  .cal-post {
-    background: var(--olive-dim);
-    border-left: 2px solid var(--olive-light);
-    padding: 3px 5px;
-    border-radius: 2px;
-    font-size: 9px;
-    color: var(--white);
-    cursor: pointer;
-    margin-bottom: 3px;
-    line-height: 1.3;
-    transition: opacity 0.2s;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  @media (min-width: 640px) {
-    .cal-post { font-size: 10px; padding: 4px 6px; }
-  }
-
+  .cal-date { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); margin-bottom: 4px; }
+  .cal-post { background: var(--olive-dim); border-left: 2px solid var(--olive-light); padding: 3px 5px; border-radius: 2px; font-size: 9px; color: var(--white); cursor: pointer; margin-bottom: 3px; line-height: 1.3; transition: opacity 0.2s; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  @media (min-width: 640px) { .cal-post { font-size: 10px; padding: 4px 6px; } }
   .cal-post:hover { opacity: 0.8; }
   .cal-post.story { background: #4a3a28; border-left-color: var(--tan); }
-  .cal-post.human { background: #28384a; border-left-color: #7a9bb5; }
-  .cal-post.article { background: #3a2848; border-left-color: #9b7ab5; }
+  .cal-post.human { background: #28384a; border-left-color: var(--blue); }
+  .cal-post.article { background: #3a2848; border-left-color: var(--purple); }
   .cal-post.posted { opacity: 0.4; text-decoration: line-through; }
-
-  .cal-post-type {
-    font-family: 'DM Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    opacity: 0.7;
-    display: none;
-  }
-
+  .cal-post-type { font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: 1px; text-transform: uppercase; opacity: 0.7; display: none; }
   @media (min-width: 640px) { .cal-post-type { display: block; margin-bottom: 1px; } }
 
   /* ── MODAL ── */
@@ -420,11 +256,7 @@
     justify-content: center;
     padding: 0;
   }
-
-  @media (min-width: 640px) {
-    .modal-overlay { align-items: center; padding: 24px; }
-  }
-
+  @media (min-width: 640px) { .modal-overlay { align-items: center; padding: 24px; } }
   .modal-overlay.open { display: flex; }
 
   .modal {
@@ -438,214 +270,286 @@
     border-radius: 8px 8px 0 0;
     -webkit-overflow-scrolling: touch;
   }
+  @media (min-width: 640px) { .modal { max-width: 680px; max-height: 85vh; border: 1px solid var(--border); border-radius: 2px; padding: 36px; } }
 
-  @media (min-width: 640px) {
-    .modal {
-      max-width: 680px;
-      max-height: 85vh;
-      border: 1px solid var(--border);
-      border-radius: 2px;
-      padding: 36px;
-    }
-  }
-
-  /* drag handle for mobile */
-  .modal-handle {
-    width: 36px;
-    height: 4px;
-    background: var(--border);
-    border-radius: 2px;
-    margin: 0 auto 20px;
-  }
-
+  .modal-handle { width: 36px; height: 4px; background: var(--border); border-radius: 2px; margin: 0 auto 20px; }
   @media (min-width: 640px) { .modal-handle { display: none; } }
 
-  .modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    gap: 12px;
-  }
-
-  .modal-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(22px, 5vw, 28px);
-    letter-spacing: 2px;
-    color: var(--white);
-    line-height: 1.1;
-  }
-
-  .modal-close {
-    background: none;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    width: 36px;
-    height: 36px;
-    flex-shrink: 0;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-    border-radius: 2px;
-  }
-
+  .modal-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 20px; gap: 12px; }
+  .modal-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(20px, 5vw, 26px); letter-spacing: 2px; color: var(--white); line-height: 1.1; }
+  .modal-close { background: none; border: 1px solid var(--border); color: var(--muted); width: 36px; height: 36px; flex-shrink: 0; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; border-radius: 2px; }
   .modal-close:hover { border-color: var(--red); color: var(--red); }
+  .modal-meta { display: flex; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; align-items: center; }
+  .modal-field { margin-bottom: 16px; }
+  .modal-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+  .modal-text { font-size: 14px; color: var(--white); line-height: 1.7; background: var(--card); border: 1px solid var(--border); padding: 12px 14px; border-radius: 2px; }
 
-  .modal-meta {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-    align-items: center;
-  }
-
-  .modal-field { margin-bottom: 18px; }
-
-  .modal-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 8px;
-  }
-
-  .modal-text {
-    font-size: 14px;
-    color: var(--white);
-    line-height: 1.7;
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 12px 14px;
-    border-radius: 2px;
-  }
-
-  .modal-textarea {
+  .modal-input, .modal-textarea, .modal-select {
     width: 100%;
-    min-height: 100px;
     background: var(--card);
     border: 1px solid var(--border);
     color: var(--white);
     font-family: 'DM Sans', sans-serif;
     font-size: 14px;
-    padding: 12px 14px;
-    resize: vertical;
+    padding: 10px 12px;
     outline: none;
-    line-height: 1.6;
     border-radius: 2px;
     -webkit-appearance: none;
   }
+  .modal-input:focus, .modal-textarea:focus, .modal-select:focus { border-color: var(--olive-light); }
+  .modal-textarea { min-height: 100px; resize: vertical; line-height: 1.6; }
+  .modal-select option { background: var(--dark); }
 
-  .modal-textarea:focus { border-color: var(--olive-light); }
+  .modal-footer { display: flex; gap: 8px; justify-content: flex-end; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--border); flex-wrap: wrap; }
 
-  .modal-footer {
+  .edit-toggle { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 1px; text-transform: uppercase; color: var(--amber); cursor: pointer; background: none; border: none; padding: 0; margin-left: auto; }
+
+  /* ── BRAINSTORM VIEW ── */
+  .brainstorm-section { margin-bottom: 32px; }
+  .brainstorm-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+  .brainstorm-title { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; }
+  .brainstorm-title.question { color: var(--olive-light); }
+  .brainstorm-title.story { color: var(--tan); }
+  .brainstorm-title.human { color: var(--blue); }
+  .brainstorm-title.article { color: var(--purple); }
+
+  .idea-list { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+
+  .idea-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--olive-light);
+    padding: 12px 14px;
     display: flex;
-    gap: 8px;
-    justify-content: flex-end;
-    margin-top: 20px;
-    padding-top: 18px;
-    border-top: 1px solid var(--border);
-    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 12px;
+    border-radius: 2px;
+  }
+  .idea-card.story { border-left-color: var(--tan); }
+  .idea-card.human { border-left-color: var(--blue); }
+  .idea-card.article { border-left-color: var(--purple); }
+
+  .idea-text { flex: 1; font-size: 13px; color: var(--white); line-height: 1.5; }
+  .idea-actions { display: flex; gap: 6px; flex-shrink: 0; flex-wrap: wrap; }
+
+  .idea-input-row { display: flex; gap: 8px; align-items: flex-start; }
+  .idea-input-row textarea { flex: 1; min-height: 60px; }
+
+  /* ── ADD POST VIEW ── */
+  .add-post-form {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--olive-light);
+    padding: 24px;
+    border-radius: 2px;
+    max-width: 700px;
   }
 
-  .btn-primary {
-    padding: 10px 20px;
+  .form-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 2px; color: var(--white); margin-bottom: 20px; }
+  .form-field { margin-bottom: 16px; }
+  .form-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; display: block; }
+  .form-input, .form-select, .form-textarea {
+    width: 100%;
+    background: var(--black);
+    border: 1px solid var(--border);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    padding: 10px 12px;
+    outline: none;
+    border-radius: 2px;
+    -webkit-appearance: none;
+  }
+  .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--olive-light); }
+  .form-textarea { min-height: 120px; resize: vertical; line-height: 1.6; }
+  .form-select option { background: var(--dark); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+  .form-actions { display: flex; gap: 10px; margin-top: 20px; flex-wrap: wrap; }
+
+  .btn-save {
+    padding: 10px 24px;
     background: var(--olive);
     color: var(--white);
     border: none;
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
     cursor: pointer;
     transition: background 0.2s;
     border-radius: 2px;
   }
-
-  .btn-primary:hover { background: var(--olive-light); }
+  .btn-save:hover { background: var(--olive-light); }
 
   /* ── RULES VIEW ── */
-  .rules-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-    margin-bottom: 32px;
-  }
-
+  .rules-grid { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 32px; }
   @media (min-width: 768px) { .rules-grid { grid-template-columns: 1fr 1fr; } }
 
-  .rule-card {
+  .rule-card { background: var(--card); border: 1px solid var(--border); border-top: 3px solid var(--olive-light); padding: 20px; border-radius: 2px; }
+  .rule-card.story { border-top-color: var(--tan); }
+  .rule-card.human { border-top-color: var(--blue); }
+  .rule-card.article { border-top-color: var(--purple); }
+
+  .rule-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; margin-bottom: 4px; }
+  .rule-subtitle { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 14px; }
+  .rule-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .rule-list li { font-size: 13px; color: var(--muted); padding-left: 16px; position: relative; line-height: 1.5; }
+  .rule-list li::before { content: '—'; position: absolute; left: 0; color: var(--olive-dim); }
+
+  .never-list { background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--red); padding: 20px; border-radius: 2px; }
+  .never-title { font-family: 'Bebas Neue', sans-serif; font-size: 20px; letter-spacing: 2px; color: var(--red); margin-bottom: 14px; }
+  .habits-card { margin-top: 24px; background: var(--card); border: 1px solid var(--border); border-top: 3px solid var(--olive-light); padding: 20px; border-radius: 2px; }
+
+  /* ── RESEARCH VIEW ── */
+  .research-controls {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .research-select {
     background: var(--card);
     border: 1px solid var(--border);
-    border-top: 3px solid var(--olive-light);
-    padding: 20px;
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 8px 12px;
     border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+  }
+  .research-select:focus { border-color: var(--olive-light); }
+  .research-select option { background: var(--dark); }
+
+  .research-results { display: flex; flex-direction: column; gap: 10px; }
+
+  .research-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--olive-light);
+    padding: 14px 16px;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
   }
 
-  .rule-card.story { border-top-color: var(--tan); }
-  .rule-card.human { border-top-color: #7a9bb5; }
-  .rule-card.article { border-top-color: #9b7ab5; }
-
-  .rule-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    margin-bottom: 4px;
+  .research-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
   }
 
-  .rule-subtitle {
+  .research-title {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.4;
+    flex: 1;
+  }
+
+  .research-meta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .research-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--olive-light);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .research-score {
     font-family: 'DM Mono', monospace;
     font-size: 10px;
     color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin-bottom: 14px;
   }
 
-  .rule-list { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .research-actions { display: flex; gap: 8px; flex-shrink: 0; flex-wrap: wrap; }
 
-  .rule-list li {
-    font-size: 13px;
+  .research-empty {
+    text-align: center;
+    padding: 48px 24px;
     color: var(--muted);
-    padding-left: 16px;
-    position: relative;
-    line-height: 1.5;
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
   }
 
-  .rule-list li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--olive-dim);
+  .research-loading {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--muted);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
   }
 
-  .never-list {
-    background: var(--card);
+  .spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--border);
+    border-top-color: var(--olive-light);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .subreddit-tags {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .sub-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 10px;
     border: 1px solid var(--border);
-    border-left: 3px solid var(--red);
-    padding: 20px;
     border-radius: 2px;
+    color: var(--muted);
+    cursor: pointer;
+    background: none;
+    transition: all 0.2s;
+    text-transform: uppercase;
   }
+  .sub-tag:hover { border-color: var(--olive-light); color: var(--olive-light); }
+  .sub-tag.active { border-color: var(--olive-light); color: var(--olive-light); background: var(--olive-dim); }
 
-  .never-title {
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 20px;
-    letter-spacing: 2px;
-    color: var(--red);
-    margin-bottom: 14px;
-  }
-
-  .habits-card {
-    margin-top: 24px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-top: 3px solid var(--olive-light);
-    padding: 20px;
+  .toast {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(80px);
+    background: var(--olive);
+    color: var(--white);
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 10px 20px;
     border-radius: 2px;
+    z-index: 200;
+    transition: transform 0.3s ease;
+    white-space: nowrap;
   }
+  .toast.show { transform: translateX(-50%) translateY(0); }
 </style>
 </head>
 <body>
@@ -674,9 +578,12 @@
 </div>
 
 <div class="tabs">
-  <button class="tab active" onclick="switchTab('posts', this)">Post Schedule</button>
-  <button class="tab" onclick="switchTab('calendar', this)">Calendar View</button>
-  <button class="tab" onclick="switchTab('rules', this)">Strategy & Rules</button>
+  <button class="tab active" onclick="switchTab('posts', this)">Schedule</button>
+  <button class="tab" onclick="switchTab('calendar', this)">Calendar</button>
+  <button class="tab" onclick="switchTab('brainstorm', this)">Brainstorm</button>
+  <button class="tab" onclick="switchTab('add', this)">+ Add Post</button>
+  <button class="tab" onclick="switchTab('research', this)">Research</button>
+  <button class="tab" onclick="switchTab('rules', this)">Strategy</button>
 </div>
 
 <div class="main">
@@ -685,21 +592,17 @@
   <div class="view active" id="view-posts">
     <div class="progress-section">
       <div class="progress-label">
-        <span>June 2026 Progress</span>
+        <span id="progress-month-label">2026 Progress</span>
         <span id="progress-text">0 / 0 posted</span>
       </div>
-      <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill" style="width:0%"></div>
-      </div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width:0%"></div></div>
     </div>
-
     <div class="legend">
       <div class="legend-item"><div class="legend-dot dot-question"></div>Question (Mon)</div>
       <div class="legend-item"><div class="legend-dot dot-story"></div>Story (Wed–Thu)</div>
       <div class="legend-item"><div class="legend-dot dot-human"></div>Human (Fri)</div>
       <div class="legend-item"><div class="legend-dot dot-article"></div>Article (Monthly)</div>
     </div>
-
     <div id="post-list" class="post-list"></div>
   </div>
 
@@ -712,15 +615,85 @@
       <div class="legend-item"><div class="legend-dot dot-article"></div>Article</div>
     </div>
     <div class="calendar-header">
-      <div class="cal-day-label">Su</div>
-      <div class="cal-day-label">Mo</div>
-      <div class="cal-day-label">Tu</div>
-      <div class="cal-day-label">We</div>
-      <div class="cal-day-label">Th</div>
-      <div class="cal-day-label">Fr</div>
+      <div class="cal-day-label">Su</div><div class="cal-day-label">Mo</div>
+      <div class="cal-day-label">Tu</div><div class="cal-day-label">We</div>
+      <div class="cal-day-label">Th</div><div class="cal-day-label">Fr</div>
       <div class="cal-day-label">Sa</div>
     </div>
     <div class="calendar-grid" id="calendar-grid"></div>
+  </div>
+
+  <!-- BRAINSTORM VIEW -->
+  <div class="view" id="view-brainstorm">
+    <div id="brainstorm-board"></div>
+  </div>
+
+  <!-- ADD POST VIEW -->
+  <div class="view" id="view-add">
+    <div class="add-post-form">
+      <div class="form-title">Add New Post</div>
+      <div class="form-row">
+        <div class="form-field">
+          <label class="form-label">Date</label>
+          <input type="date" class="form-input" id="new-date">
+        </div>
+        <div class="form-field">
+          <label class="form-label">Post Type</label>
+          <select class="form-select" id="new-type">
+            <option value="question">Question (Mon)</option>
+            <option value="story">Story / Insight (Wed–Thu)</option>
+            <option value="human">Human Post (Fri)</option>
+            <option value="article">LinkedIn Article</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-field">
+        <label class="form-label">Title</label>
+        <input type="text" class="form-input" id="new-title" placeholder="e.g. Question Post #5 — Taxes">
+      </div>
+      <div class="form-field">
+        <label class="form-label">Hook / Opening Line</label>
+        <input type="text" class="form-input" id="new-hook" placeholder="The first line that stops the scroll...">
+      </div>
+      <div class="form-field">
+        <label class="form-label">Full Draft / Talking Points</label>
+        <textarea class="form-textarea" id="new-draft" placeholder="Write the full post or bullet-point the key ideas..."></textarea>
+      </div>
+      <div class="form-actions">
+        <button class="btn-save" onclick="addNewPost()">Add to Schedule</button>
+        <button class="btn" onclick="clearAddForm()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESEARCH VIEW -->
+  <div class="view" id="view-research">
+    <div style="margin-bottom:20px;">
+      <div class="month-title" style="font-size:22px;margin-bottom:8px;">Reddit Research</div>
+      <p style="font-size:13px;color:var(--muted);line-height:1.6;">Top posts from veteran and personal finance communities this week. Spot what your audience is actually asking — then send anything useful straight to your Brainstorm board.</p>
+    </div>
+
+    <div class="subreddit-tags" id="sub-tags">
+      <button class="sub-tag active" onclick="selectSub('personalfinance', this)">r/personalfinance</button>
+      <button class="sub-tag" onclick="selectSub('financialindependence', this)">r/financialindependence</button>
+      <button class="sub-tag" onclick="selectSub('Veterans', this)">r/Veterans</button>
+      <button class="sub-tag" onclick="selectSub('military', this)">r/military</button>
+      <button class="sub-tag" onclick="selectSub('fatFIRE', this)">r/fatFIRE</button>
+      <button class="sub-tag" onclick="selectSub('Bogleheads', this)">r/Bogleheads</button>
+    </div>
+
+    <div class="research-controls">
+      <select class="research-select" id="research-sort" onchange="fetchReddit()">
+        <option value="top">Top This Week</option>
+        <option value="hot">Hot Right Now</option>
+        <option value="new">New</option>
+      </select>
+      <button class="btn btn-primary-sm" onclick="fetchReddit()">Refresh</button>
+    </div>
+
+    <div class="research-results" id="research-results">
+      <div class="research-empty">Select a subreddit above and hit Refresh to load posts.</div>
+    </div>
   </div>
 
   <!-- RULES VIEW -->
@@ -774,7 +747,6 @@
         </ul>
       </div>
     </div>
-
     <div class="never-list">
       <div class="never-title">Never Post</div>
       <ul class="rule-list">
@@ -786,7 +758,6 @@
         <li>Anything that fails the evergreen test: still relevant in 3 years?</li>
       </ul>
     </div>
-
     <div class="habits-card">
       <div class="rule-title" style="margin-bottom:4px;">The Weekly Habits</div>
       <div class="rule-subtitle">Non-negotiable</div>
@@ -800,7 +771,7 @@
 
 </div>
 
-<!-- MODAL -->
+<!-- POST MODAL -->
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
   <div class="modal" onclick="event.stopPropagation()">
     <div class="modal-handle"></div>
@@ -811,148 +782,195 @@
     <div class="modal-meta">
       <span class="post-type-badge" id="modal-badge">Question</span>
       <span style="font-family:'DM Mono',monospace;font-size:11px;color:var(--muted)" id="modal-date"></span>
+      <button class="edit-toggle" id="edit-toggle-btn" onclick="toggleEditMode()">Edit Post</button>
     </div>
-    <div class="modal-field">
-      <div class="modal-label">Hook / Opening Line</div>
-      <div class="modal-text" id="modal-hook"></div>
+
+    <!-- VIEW MODE -->
+    <div id="modal-view-mode">
+      <div class="modal-field">
+        <div class="modal-label">Hook / Opening Line</div>
+        <div class="modal-text" id="modal-hook"></div>
+      </div>
+      <div class="modal-field">
+        <div class="modal-label">Full Draft / Talking Points</div>
+        <div class="modal-text" id="modal-draft"></div>
+      </div>
+      <div class="modal-field">
+        <div class="modal-label">Your Notes</div>
+        <textarea class="modal-textarea" id="modal-notes" placeholder="Add notes, personal touches, or reminders..."></textarea>
+      </div>
     </div>
-    <div class="modal-field">
-      <div class="modal-label">Full Draft / Talking Points</div>
-      <div class="modal-text" id="modal-draft"></div>
+
+    <!-- EDIT MODE -->
+    <div id="modal-edit-mode" style="display:none;">
+      <div class="modal-field">
+        <div class="modal-label">Title</div>
+        <input type="text" class="modal-input" id="edit-title">
+      </div>
+      <div class="modal-field">
+        <div class="modal-label">Hook / Opening Line</div>
+        <input type="text" class="modal-input" id="edit-hook">
+      </div>
+      <div class="modal-field">
+        <div class="modal-label">Full Draft</div>
+        <textarea class="modal-textarea" id="edit-draft" style="min-height:160px;"></textarea>
+      </div>
     </div>
-    <div class="modal-field">
-      <div class="modal-label">Your Notes / Edits</div>
-      <textarea class="modal-textarea" id="modal-notes" placeholder="Add your edits, personal touches, or reminders here..."></textarea>
-    </div>
+
     <div class="modal-footer">
       <button class="btn" onclick="closeModalDirect()">Close</button>
-      <button class="btn btn-edit" onclick="saveNotes()">Save Notes</button>
+      <button class="btn btn-danger" id="modal-delete-btn" onclick="deletePostFromModal()" style="display:none;">Delete</button>
+      <button class="btn btn-edit" id="modal-save-btn" onclick="savePostEdits()" style="display:none;">Save Edits</button>
+      <button class="btn btn-edit" id="modal-notes-btn" onclick="saveNotes()">Save Notes</button>
       <button class="btn btn-done" id="modal-toggle-btn" onclick="togglePostedFromModal()">Mark as Posted</button>
     </div>
   </div>
 </div>
 
+<div class="toast" id="toast"></div>
+
 <script>
-const posts = [
-  {
-    id: 1, date: '2026-06-01', dateLabel: 'Mon, June 1', type: 'question',
-    title: 'Question Post #1',
-    hook: "What's the worst financial advice you ever got — and who gave it to you?",
-    draft: `What's the worst financial advice you ever got — and who gave it to you?\n\nI'll share mine in the comments.\n\n(Asking because after years of doing this, the patterns are wild — and honestly some of them are pretty funny in hindsight.)`,
-    notes: ''
-  },
-  {
-    id: 2, date: '2026-06-03', dateLabel: 'Wed, June 3', type: 'story',
-    title: 'Story Post #1 — The Transition Blindspot',
-    hook: "Most guys I know crushed their military career. Then left and had no idea what to do with money for the first time.",
-    draft: `Most guys I know crushed their military career. Then left and had no idea what to do with money for the first time.\n\nNot because they're not smart. Because the military handled everything. Housing, healthcare, paycheck on the 1st and 15th. You didn't have to think about it.\n\nThen you're out. Six-figure salary, pension hitting the account, and suddenly you're supposed to just... figure it out.\n\nI see the same thing constantly. High performers who've mastered everything else, winging their finances because nobody ever taught them this part.\n\nThat gap is exactly why I do what I do.\n\nWhat was the first money decision that caught you off guard after leaving?`,
-    notes: ''
-  },
-  {
-    id: 3, date: '2026-06-05', dateLabel: 'Fri, June 5', type: 'human',
-    title: 'Human Post #1',
-    hook: "Something real about your week, training, family, or a thought that stuck with you.",
-    draft: `[Keep this one personal and yours — a training observation, something your kid said, a book you're reading, a moment from the week that stuck with you. 2–4 sentences max. No financial angle needed.]`,
-    notes: ''
-  },
-  {
-    id: 4, date: '2026-06-08', dateLabel: 'Mon, June 8', type: 'question',
-    title: 'Question Post #2',
-    hook: "What's one thing you wish someone told you about money before you left the military?",
-    draft: `What's one thing you wish someone told you about money before you left the military?\n\nDrop it in the comments. Genuinely curious what the common threads are.`,
-    notes: ''
-  },
-  {
-    id: 5, date: '2026-06-10', dateLabel: 'Wed, June 10', type: 'story',
-    title: 'Story Post #2 — Taxes',
-    hook: "A client came to me paying $40k more in taxes than he needed to. He had no idea.",
-    draft: `A client came to me paying $40k more in taxes than he needed to. He had no idea.\n\nNot because he was careless. Because nobody had ever actually looked at the whole picture — pension, salary, investments, all of it together — and asked "is this set up right?"\n\nIt wasn't. A few adjustments later, that number looked very different.\n\nI'm not saying everyone has $40k sitting on the table. But most high-income veterans I sit down with are leaving something there — and don't know it until we dig in.\n\nWhen's the last time someone actually looked at your full picture?`,
-    notes: ''
-  },
-  {
-    id: 6, date: '2026-06-12', dateLabel: 'Fri, June 12', type: 'human',
-    title: 'Human Post #2',
-    hook: "Something real — a Friday thought, a win from the week, something you're working on.",
-    draft: `[Personal and yours. Could be a workout milestone, something you're reading, a parenting moment, an observation about the week. Short, real, no agenda.]`,
-    notes: ''
-  },
-  {
-    id: 7, date: '2026-06-15', dateLabel: 'Mon, June 15', type: 'question',
-    title: 'Question Post #3',
-    hook: "What does financial freedom actually look like to you — and how close are you?",
-    draft: `What does financial freedom actually look like to you — and how close are you?\n\nNot the textbook definition. Your version. What would actually change about your day-to-day?\n\nCurious what people are actually working toward.`,
-    notes: ''
-  },
-  {
-    id: 8, date: '2026-06-17', dateLabel: 'Wed, June 17', type: 'story',
-    title: 'Story Post #3 — Winging It',
-    hook: "The most common thing I hear from new clients isn't about investing or taxes. It's: 'I know I should have figured this out by now.'",
-    draft: `The most common thing I hear from new clients isn't about investing or taxes.\n\nIt's: "I know I should have figured this out by now."\n\nAnd they're usually accomplished. Good career, solid income, family taken care of. Not someone who's been ignoring their finances — just someone who's been busy doing everything else right.\n\nThere's no shame in it. Nobody hands you a manual for this part.\n\nBut that feeling — the nagging sense that you're winging something you shouldn't be winging — that's exactly the thing I fix.\n\nAnyone else been there?`,
-    notes: ''
-  },
-  {
-    id: 9, date: '2026-06-19', dateLabel: 'Fri, June 19', type: 'human',
-    title: 'Human Post #3',
-    hook: "Something personal from your week.",
-    draft: `[Your call — keep it real and short. The less it sounds planned, the better it performs.]`,
-    notes: ''
-  },
-  {
-    id: 10, date: '2026-06-22', dateLabel: 'Mon, June 22', type: 'question',
-    title: 'Question Post #4',
-    hook: "If you had to rank your financial life like a performance review — what score would you give yourself and why?",
-    draft: `If you had to rank your financial life like a performance review — what score would you give yourself and why?\n\nNot your net worth. Your confidence in where you stand and where you're going.\n\nBe honest. Comments are a judgment-free zone.`,
-    notes: ''
-  },
-  {
-    id: 11, date: '2026-06-24', dateLabel: 'Wed, June 24', type: 'story',
-    title: 'Story Post #4 — Retirement Question',
-    hook: "The question I get more than any other: 'Can I actually retire when I want to?'",
-    draft: `The question I get more than any other isn't about investments or taxes.\n\nIt's: "Can I actually retire when I want to?"\n\nAnd most people asking it have more than enough to work with. They just don't know it yet because nobody's ever laid it all out in one place and run the numbers honestly.\n\nThat moment — when someone sees clearly that the path is real and achievable — is the best part of this job.\n\nWhat's your retirement target, and how confident are you that you're on track?`,
-    notes: ''
-  },
-  {
-    id: 12, date: '2026-06-26', dateLabel: 'Fri, June 26', type: 'human',
-    title: 'Human Post #4',
-    hook: "End of month reflection or something personal.",
-    draft: `[End of June — could be a month reflection, something you learned, a goal you hit, or just something real from your week. Short and genuine.]`,
-    notes: ''
-  },
-  {
-    id: 13, date: '2026-06-29', dateLabel: 'Mon, June 29', type: 'article',
-    title: 'LinkedIn Article — June',
-    hook: '"Can I retire when I want to?" — The veteran version of the most common question in financial planning',
-    draft: `TITLE: "Can I Retire When I Want To?" — What That Question Actually Requires\n\nOPENING (answer first):\nMost veterans asking this question are closer than they think. The problem isn't the money — it's that nobody has ever mapped the full picture: pension, TSP, investments, Social Security timing, spouse income, taxes in retirement. Once you see it all together, the answer becomes clear.\n\nSUBHEADINGS TO HIT:\n1. Why this question is harder for veterans than civilians\n2. The five numbers that actually determine your answer\n3. The mistake most high-income veterans make in year one after separation\n4. What "close enough" actually looks like\n5. One practical first step\n\nCLOSE:\nDirect, no pitch. Something like: "If you've been asking yourself this question and don't have a clear answer yet, that's the gap worth closing. Happy to help you look at the numbers."\n\n[Draft with AI, then make every line sound like you — not a textbook.]`,
-    notes: ''
-  }
+// ── SEED DATA ──────────────────────────────────────────────────
+const SEED_POSTS = [
+  { id: 1, date: '2026-06-01', dateLabel: 'Mon, June 1', type: 'question', title: 'Question Post #1 — Opener', hook: "What's the best financial decision you've made in the last five years — and what made you finally pull the trigger on it?", draft: "What's the best financial decision you've made in the last five years — and what made you finally pull the trigger on it?\n\nI'll share mine in the comments.\n\n(Asking because the pattern I see most often isn't that people don't know what to do — it's that something finally makes them actually do it.)", notes: '', custom: false },
+  { id: 2, date: '2026-06-03', dateLabel: 'Wed, June 3', type: 'story', title: 'Story Post #1 — The Collection Problem', hook: "Most high earners don't have a financial plan. They have a collection of financial decisions.", draft: "Most high earners don't have a financial plan. They have a collection of financial decisions.\n\n401k opened when they started the job. Some investing account from years ago. Life insurance someone sold them. A few accounts that accumulated over time.\n\nEach decision made sense when they made it. But nobody's ever looked at all of it together and asked whether it's actually working as a system.\n\nThat's usually where the gaps are. Not in any single bad decision — in the lack of coordination between the good ones.\n\nWhat's one financial area you know could be better organized but haven't gotten to yet?", notes: '', custom: false },
+  { id: 3, date: '2026-06-05', dateLabel: 'Fri, June 5', type: 'human', title: 'Human Post #1', hook: "Something real from your week — training, family, an observation. 2-3 sentences, no financial angle.", draft: "[Keep this personal and yours. A training observation, something your kid said, a book you're reading, a moment from the week that stuck. 2–3 sentences max. The less it sounds planned, the better it performs.]", notes: '', custom: false },
+  { id: 4, date: '2026-06-08', dateLabel: 'Mon, June 8', type: 'question', title: 'Question Post #2 — Feel Behind', hook: "If you had to grade your financial life the same way you'd grade your career performance — what score would you give yourself and why?", draft: "If you had to grade your financial life the same way you'd grade your career performance — what score would you give yourself and why?\n\nNot your net worth. Your confidence in the actual setup — whether it's organized, optimized, and pointed in the right direction.\n\nDrop your score in the comments. No judgment here.", notes: '', custom: false },
+  { id: 5, date: '2026-06-10', dateLabel: 'Wed, June 10', type: 'story', title: 'Story Post #2 — Busy Doing the Job', hook: "I've been so focused on making money I haven't had time to figure out what to do with it.", draft: "\"I've been so focused on making money I haven't had time to figure out what to do with it.\"\n\nI hear this constantly. And it's not an excuse — it's just what happens when you're good at your job and fully committed to it.\n\nHigh income follows. Complexity follows the income. And the financial side gets managed reactively — decisions made when something forces them, not because there's a plan.\n\nThe irony is that the people who need a real strategy the most are often too busy to build one.\n\nThat's not a character flaw. It's a bandwidth problem.\n\nWhat's the one financial thing you keep meaning to sort out but haven't?", notes: '', custom: false },
+  { id: 6, date: '2026-06-12', dateLabel: 'Fri, June 12', type: 'human', title: 'Human Post #2', hook: "Something real — a Friday thought, a win from the week, something you're working on.", draft: "[Personal and yours. Could be a workout milestone, something you're reading, a parenting moment, an observation about the week. Short, real, no agenda.]", notes: '', custom: false },
+  { id: 7, date: '2026-06-15', dateLabel: 'Mon, June 15', type: 'question', title: 'Question Post #3 — Windfall', hook: "When your income jumped significantly — promotion, exit, big bonus — what changed about how you managed money? What do you wish you'd done differently?", draft: "When your income jumped significantly — promotion, exit, big bonus — what changed about how you managed money?\n\nAnd what do you wish you'd done differently in that moment?\n\nAsking because that inflection point is where most of the big decisions happen — and where most of the big mistakes happen too.", notes: '', custom: false },
+  { id: 8, date: '2026-06-17', dateLabel: 'Wed, June 17', type: 'story', title: 'Story Post #3 — Winging It', hook: "The most common thing I hear from new clients isn't about investing or taxes. It's: 'I know I should have figured this out by now.'", draft: "The most common thing I hear from new clients isn't about investing or taxes.\n\nIt's: \"I know I should have figured this out by now.\"\n\nAnd they're usually accomplished. Running teams, building things, making real money. Not someone who's been ignoring their finances — just someone who's been busy doing everything else right.\n\nThere's no shame in it. It's not what most people spend their career learning.\n\nBut that feeling — the nagging sense that you're winging something you shouldn't be winging — that's exactly the thing worth fixing.\n\nAnyone else been there?", notes: '', custom: false },
+  { id: 9, date: '2026-06-19', dateLabel: 'Fri, June 19', type: 'human', title: 'Human Post #3', hook: "Something personal from your week.", draft: "[Your call — keep it real and short. The less it sounds planned, the better it performs.]", notes: '', custom: false },
+  { id: 10, date: '2026-06-22', dateLabel: 'Mon, June 22', type: 'question', title: 'Question Post #4 — Advisor Worth It', hook: "Honest question: do you think paying a financial advisor is actually worth it — or is it something most people can figure out themselves?", draft: "Honest question: do you think paying a financial advisor is actually worth it — or is it something most people can figure out themselves?\n\nI ask because I think the honest answer is: it depends entirely on the complexity of your situation.\n\nCurious where people land on this.", notes: '', custom: false },
+  { id: 11, date: '2026-06-24', dateLabel: 'Wed, June 24', type: 'story', title: 'Story Post #4 — Retirement Question', hook: "The question I get more than any other isn't about investments. It's: can I actually stop when I want to?", draft: "The question I get more than any other isn't about investments.\n\nIt's: \"Can I actually stop when I want to?\"\n\nAnd most people asking it have more than enough to work with. They just don't know it yet — because nobody's ever laid it all out in one place and run the numbers honestly.\n\nThe gap isn't the money. It's the clarity.\n\nThat moment — when someone actually sees their full picture and realizes the path is real — is the best part of this job.\n\nWhat's your target, and how confident are you that you're actually on track?", notes: '', custom: false },
+  { id: 12, date: '2026-06-26', dateLabel: 'Fri, June 26', type: 'human', title: 'Human Post #4', hook: "End of month — something real from June.", draft: "[End of June — could be a month reflection, something you learned, a goal you hit, or just something real from your week. Short and genuine.]", notes: '', custom: false },
+  { id: 13, date: '2026-06-29', dateLabel: 'Mon, June 29', type: 'article', title: 'LinkedIn Article — June', hook: '"Is a Financial Advisor Worth It?" — The honest answer from someone who does this for a living', draft: "TITLE: Is a Financial Advisor Worth It — Or Can You Figure This Out Yourself?\n\nOPENING (answer first):\nHonest answer: for simple situations, probably not. For complex ones — equity comp, multiple income streams, significant assets, real tax exposure — the math usually works in your favor. But the type of advisor matters as much as whether you have one.\n\nSUBHEADINGS TO HIT:\n1. What an advisor actually does (vs. what people think)\n2. When doing it yourself is genuinely the right call\n3. When complexity justifies the cost\n4. Fee-only vs. commission — why it matters more than most people realize\n5. Three questions to ask before hiring anyone\n\nCLOSE:\nState your fee-only fiduciary status directly. This is the one place it belongs front and center. Clean, no pitch — just clarity on what you are and how you work.\n\n[Draft with AI, make every line sound like you.]", notes: '', custom: false }
 ];
 
-let currentPostId = null;
+// ── STATE ──────────────────────────────────────────────────────
+function loadPosts() {
+  try {
+    const saved = localStorage.getItem('li_posts');
+    if (saved) return JSON.parse(saved);
+    localStorage.setItem('li_posts', JSON.stringify(SEED_POSTS));
+    return SEED_POSTS;
+  } catch { return SEED_POSTS; }
+}
 
-function switchTab(tab, el) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('view-' + tab).classList.add('active');
-  if (tab === 'calendar') renderCalendar();
+function savePosts(posts) {
+  try { localStorage.setItem('li_posts', JSON.stringify(posts)); } catch {}
 }
 
 function getPostedState() {
   try { return JSON.parse(localStorage.getItem('li_posted') || '{}'); } catch { return {}; }
 }
 
-function getNotes() {
-  try { return JSON.parse(localStorage.getItem('li_notes') || '{}'); } catch { return {}; }
-}
-
 function savePostedState(state) {
   try { localStorage.setItem('li_posted', JSON.stringify(state)); } catch {}
 }
 
-function saveNotesState(notes) {
-  try { localStorage.setItem('li_notes', JSON.stringify(notes)); } catch {}
+const SEED_IDEAS = {
+  question: [
+    // Executive-focused
+    "What's the best financial decision you've made in the last five years — and what made you finally pull the trigger on it?",
+    "What's one thing about money you wish you'd figured out ten years earlier?",
+    "Honest question: how confident are you that your money is actually set up to work as hard as you do?",
+    "What does your version of financial freedom actually look like — and do you have a real plan to get there?",
+    "Pay off the mortgage or keep investing — where do you land and why? Strong opinions welcome.",
+    "When your income jumped significantly, what changed about how you managed money? What do you wish you'd done differently?",
+    "What's the one financial question you've been meaning to sort out but haven't — what's stopping you?",
+    "If you had to grade your financial life the same way you'd grade your career performance, what score would you give yourself?",
+    "What's the most expensive mistake you've seen someone make with a bonus or windfall?",
+    // From prospect meeting
+    "What's one thing you didn't realize you needed to figure out financially until life forced you to?",
+    "When did you first sit down with your partner and actually talk about your long-term vision — not just bills, but the big picture? What came out of it?",
+    "Have you ever been surprised by a fee you were paying — on anything — that you didn't realize was there?",
+    "If you had to name the one area of your finances you're most likely winging right now, what would it be?",
+    "You don't hire a planner when life is calm. When did life get loud enough that you finally did something about your finances?",
+    // Direct indexing / tax
+    "High earners with taxable accounts — do you actually know what your investments are costing you in taxes every year? Not just when you sell. The ongoing drag.",
+    "Has anyone ever explained to you what direct indexing is? Genuinely curious how many people have heard of it.",
+    // Veteran (1/month)
+    "What's the one thing nobody told you about managing money when you left the military?"
+  ],
+  story: [
+    // Executive composite stories with compliant first comments
+    `HOOK: "I've been so focused on making money I haven't had time to figure out what to do with it."\nANGLE: Most common thing high earners say in a first meeting. High income, multiple accounts, no real plan — bandwidth problem, not a character flaw.\nFIRST COMMENT: "Income goes up, complexity follows, and the financial side gets managed reactively. The fix isn't complicated. It's making time for it — or finding someone to handle it so you don't have to."`,
+
+    `HOOK: "They had everything — and no idea if any of it was actually working together."\nANGLE: Composite — executive couple, dual income, maxing accounts, felt behind. Good individual decisions, zero coordination across them.\nFIRST COMMENT: "Individual decisions that each made sense in isolation — but nobody had looked at them together. The gap isn't any single bad decision. It's the lack of a coordinated strategy. That coordination is usually where the real value shows up."`,
+
+    `HOOK: "He was paying more in taxes than he needed to — every single year. Nobody had ever looked at why."\nANGLE: Composite — high earner auto-selling RSUs at vest, no planning. Left meaningful money on the table annually.\nFIRST COMMENT: "RSU and equity comp tax planning is one of the most overlooked areas for high earners. Most people default to selling at vest because it's the path of least resistance. The right approach depends on your income, holdings, and timeline. Worth having someone actually look at it."`,
+
+    `HOOK: "The question I get more than any other isn't about investing. It's: can I actually stop when I want to?"\nANGLE: Retirement confidence — most high earners have never run their actual numbers. They assume they're fine. Assuming isn't knowing.\nFIRST COMMENT: "The gap between 'I think I'm on track' and 'I know I'm on track' isn't about how much you have. It's about having someone map out your specific picture. Once you see it clearly, the answer is almost always less stressful than the question."`,
+
+    `HOOK: "Most people don't have a financial plan. They have a collection of financial decisions."\nANGLE: Accounts opened at different times, insurance bought when someone called, investments made when the market felt right. No strategy — just history.\nFIRST COMMENT: "Good individual decisions don't automatically add up to a strategy. The question is whether they're all pulling in the same direction. Usually when someone maps it out, there are gaps they didn't know were there."`,
+
+    // From prospect meeting — real objections turned into content
+    `HOOK: "You don't hire a planner when life is calm. You hire one when life is loud."\nANGLE: From a real prospect conversation. They said they couldn't think long-term because next year had too many changes. That framing is exactly backwards.\nFIRST COMMENT: "The next 12 months — the career transition, the move, the new house, the big financial decision — that's exactly when having a quarterback matters most. Not five years from now when things settle down. Long-term planning isn't about predicting 30 years out. It's about making the next 12 months fit into the bigger picture."`,
+
+    `HOOK: "We've been together 20 years and never actually had a conversation about our financial future."\nANGLE: Not bills and budgets — vision. What are we building toward? What does success actually look like for us? Most couples never have this conversation until something forces it.\nFIRST COMMENT: "This comes up more than people expect. Two people, same household, completely different assumptions about what they're working toward. The conversation itself is valuable — it surfaces things that were never said out loud. If you've never done a real future-vision exercise with your partner, it's worth the 90 minutes."`,
+
+    `HOOK: "A good advisor should tell you when to spend less — not just more."\nANGLE: Trust-building. In a first meeting, I sometimes tell people they don't need a more expensive solution. That honesty is the point.\nFIRST COMMENT: "If something simple handles it — a lower-cost option, a DIY approach, a one-time decision — I'll say so. The goal is the right answer for your situation, not the most complex one. That's what fee-only actually means in practice."`,
+
+    `HOOK: "Most people think 'estate planning' means something happens when you die. It actually starts the day you have something worth protecting."\nANGLE: Demystify estate planning. It's not just wills — it's beneficiaries, powers of attorney, the structure that protects your family if something happens before you're ready.\nFIRST COMMENT: "The brick-by-brick: understand your vision first, then recommend the right structure (will, trust, beneficiaries, POAs), connect you with the right attorney if needed, manage the process, and make sure the final documents match your financial plan. You pay the attorney's legal fee. Everything else is coordinated. That's what 'quarterback' actually means."`,
+
+    `HOOK: "Most high earners are invested in ETFs in their taxable accounts. There's a version of that investment that also runs an active tax strategy in the background — and most people have never heard of it."\nANGLE: Direct indexing education. You own the individual stocks instead of a fund. When something drops, you harvest the loss. Market exposure stays the same. Tax treatment can be meaningfully different — especially at higher income levels.\nFIRST COMMENT: "This isn't the right strategy for every account or every investor. It typically makes the most sense for taxable accounts, higher income levels, and longer time horizons. But if you've never heard of direct indexing and you have a significant taxable account, it's worth understanding what it is and whether it applies to your situation. Happy to explain how it works."`,
+
+    // Veteran (1/month)
+    `HOOK: "The military is excellent at taking care of everything. Which is exactly the problem when you leave."\nANGLE: Veterans go from having every financial decision made for them to owning all of it at once. Pension, TSP, new salary, benefits — everything lands at once.\nFIRST COMMENT: "Not a knock on anyone — it's a structural gap. The military handles housing, healthcare, pay. It doesn't teach you what to do when all of that becomes your responsibility overnight. The fundamentals aren't complicated. The hard part is knowing where to start."`
+  ],
+  human: [
+    "[PROMPT] Something real from your week — training, family, a book, an observation. 2-3 sentences. No financial angle. The less it sounds planned, the better it performs.",
+    "[PROMPT] A moment where the discipline you've built — in training, in work, in life — showed up somewhere unexpected. Keep it short and genuine.",
+    "[PROMPT] Something you're working on outside of work that's teaching you something. Could be physical, creative, personal. Real and brief."
+  ],
+  article: [
+    `TITLE: "Is a Financial Advisor Worth It — Or Can You Figure This Out Yourself?"\nWHY: The #1 question high earners ask. Your honest fee-only take will stand out.\nOPENING ANSWER: For simple situations, probably not. For complex ones — equity comp, multiple income streams, significant assets, tax exposure — the math often works in your favor. But the type of advisor matters as much as whether you have one.\nSUBHEADINGS: 1. What an advisor actually does (vs. what people think) 2. When DIY is genuinely the right call 3. When complexity justifies the cost 4. Fee-only vs. commission — why it matters 5. Three questions to ask before hiring anyone\nCOMPLIANCE NOTE: State your fee-only fiduciary status directly. This is the one article where it belongs front and center.`,
+
+    `TITLE: "Why High Earners Often Feel Further Behind Than They Should"\nWHY: Validates your executive client's lived experience without shame — then points toward the fix.\nOPENING ANSWER: It's almost never the income. It's the coordination — or lack of it.\nSUBHEADINGS: 1. The trap: income goes up, complexity follows 2. Why smart people make reactive financial decisions 3. The difference between good decisions and an actual strategy 4. What coordinated actually looks like 5. One practical first step\nCOMPLIANCE NOTE: No specific advice. General education throughout.`,
+
+    `TITLE: "What to Actually Do When Your Income Jumps"\nWHY: Promotion, exit, equity vest, bonus — this is your entry point with most executive clients.\nOPENING ANSWER: The instinct is to either spend it or do something fast. Neither is usually the right move.\nSUBHEADINGS: 1. Why windfalls feel different 2. The questions to answer first 3. Taxes first — always 4. The order that actually makes sense 5. What most people get wrong\nCOMPLIANCE NOTE: General education. No specific investment recommendations.`,
+
+    `TITLE: "Can I Actually Retire When I Want To?" — What That Question Really Requires\nWHY: Universal anxiety for high earners who've never run their real numbers.\nOPENING ANSWER: Most people are closer than they think. The problem isn't the money — it's that nobody's ever mapped the full picture.\nSUBHEADINGS: 1. Why "how much do I need" is the wrong first question 2. The numbers that actually determine the answer 3. The mistake most high earners make in their 40s 4. What "on track" actually looks like 5. One honest first step\nCOMPLIANCE NOTE: No projections or guarantees. Soft close inviting conversation.`,
+
+    `TITLE: "What Is Direct Indexing — and Why Do High Earners With Taxable Accounts Need to Know About It?"\nWHY: Most high earners have never heard of it. You offer it. First-mover education advantage. AI citation gold.\nOPENING ANSWER: Most investors think their only options are funds or picking stocks. Direct indexing is a third approach — you own the individual stocks in an index directly, which allows an active tax strategy to run in the background. Same market exposure. Potentially better after-tax outcome for the right investor.\nSUBHEADINGS: 1. What direct indexing actually is (plain English) 2. How tax-loss harvesting works inside it 3. Who it makes the most sense for 4. How it compares to just owning an ETF 5. One question to ask your advisor\nCOMPLIANCE NOTE: No specific performance numbers or dollar amounts. "Potentially" and "can" throughout — never "will." General education only. "The right fit depends on your situation."`,
+
+    `TITLE: "What Does a Financial Advisor Actually Do? (The Honest Answer)"\nWHY: Directly from your prospect meeting — "are you taking us from beginning to end or just advising along the way?" Most prospects don't know what they're buying.\nOPENING ANSWER: Most people think a financial advisor manages investments. That's one piece. The rest — estate planning, insurance, taxes, real estate decisions, retirement mapping — is where most of the value actually lives.\nSUBHEADINGS: 1. The five areas a real plan covers 2. What happens in year one 3. What ongoing service actually looks like 4. What you should expect your advisor to initiate (vs. waiting for you to ask) 5. The difference between an advisor and an investment manager\nCOMPLIANCE NOTE: No performance implications. Frame as education about the profession. No mention of fees — save that for a separate piece.`,
+
+    `TITLE: "The Conversation Most Couples Never Have — Until Something Forces Them To"\nWHY: From your prospect meeting — '20 years married, never had this conversation.' Highly shareable, emotional, genuinely useful. Could also be a lead magnet worksheet.\nOPENING ANSWER: Not a conversation about money. A conversation about what you're building it for. Most couples manage finances together but have never actually aligned on what the endgame looks like.\nSUBHEADINGS: 1. Why most financial conversations are actually logistics, not vision 2. The questions worth sitting down to answer 3. What happens when two people have different answers 4. How a shared vision changes every financial decision after it 5. How to have the conversation (a simple framework)\nCOMPLIANCE NOTE: Zero financial advice needed. Pure education and value. Could be repurposed as a free downloadable worksheet — strong lead magnet.`
+  ]
+};
+
+function getIdeas() {
+  try {
+    const saved = localStorage.getItem('li_ideas');
+    if (saved) return JSON.parse(saved);
+    // First load — seed with research findings
+    localStorage.setItem('li_ideas', JSON.stringify(SEED_IDEAS));
+    return SEED_IDEAS;
+  } catch { return {question:[],story:[],human:[],article:[]}; }
 }
 
+function saveIdeas(ideas) {
+  try { localStorage.setItem('li_ideas', JSON.stringify(ideas)); } catch {}
+}
+
+let posts = loadPosts();
+let currentPostId = null;
+let editMode = false;
+
+// ── TABS ──────────────────────────────────────────────────────
+function switchTab(tab, el) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('view-' + tab).classList.add('active');
+  if (tab === 'calendar') renderCalendar();
+  if (tab === 'brainstorm') renderBrainstorm();
+  if (tab === 'research') fetchReddit();
+}
+
+// ── STATS ─────────────────────────────────────────────────────
 function updateStats() {
   const posted = getPostedState();
   const total = posts.length;
@@ -964,10 +982,12 @@ function updateStats() {
   document.getElementById('progress-fill').style.width = `${total ? (done/total)*100 : 0}%`;
 }
 
+// ── POSTS LIST ────────────────────────────────────────────────
 function renderPosts() {
   const posted = getPostedState();
   const container = document.getElementById('post-list');
   const months = {};
+
   posts.forEach(p => {
     const month = p.date.substring(0, 7);
     if (!months[month]) months[month] = [];
@@ -984,9 +1004,9 @@ function renderPosts() {
     const list = document.createElement('div');
     list.className = 'post-list';
 
-    months[month].forEach(p => {
+    months[month].sort((a,b) => a.date.localeCompare(b.date)).forEach(p => {
       const isPosted = posted[p.id];
-      const typeLabel = p.type === 'question' ? 'Question' : p.type === 'story' ? 'Story' : p.type === 'human' ? 'Human' : 'Article';
+      const typeLabel = {question:'Question',story:'Story',human:'Human',article:'Article'}[p.type] || p.type;
       const card = document.createElement('div');
       card.className = `post-card ${p.type} ${isPosted ? 'posted' : ''}`;
       card.innerHTML = `
@@ -1024,45 +1044,102 @@ function togglePosted(id, e) {
   renderCalendar();
 }
 
+// ── MODAL ─────────────────────────────────────────────────────
 function openModal(id, e) {
   if (e) e.stopPropagation();
   const post = posts.find(p => p.id === id);
   if (!post) return;
   currentPostId = id;
-  const notes = getNotes();
+  editMode = false;
+
   const posted = getPostedState();
+  const typeLabel = {question:'Question',story:'Story / Insight',human:'Human Post',article:'LinkedIn Article'}[post.type] || post.type;
 
   document.getElementById('modal-title').textContent = post.title;
   document.getElementById('modal-date').textContent = post.dateLabel;
-
   const badge = document.getElementById('modal-badge');
-  badge.textContent = post.type === 'question' ? 'Question' : post.type === 'story' ? 'Story / Insight' : post.type === 'human' ? 'Human Post' : 'LinkedIn Article';
+  badge.textContent = typeLabel;
   badge.className = `post-type-badge ${post.type}`;
 
   document.getElementById('modal-hook').textContent = post.hook;
   document.getElementById('modal-draft').innerHTML = post.draft.replace(/\n/g, '<br>');
-  document.getElementById('modal-notes').value = notes[id] || '';
+  document.getElementById('modal-notes').value = post.notes || '';
   document.getElementById('modal-toggle-btn').textContent = posted[id] ? 'Mark as Not Posted' : 'Mark as Posted';
+
+  // show delete for custom posts
+  document.getElementById('modal-delete-btn').style.display = post.custom ? 'block' : 'none';
+
+  showViewMode();
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal(e) {
-  if (e.target === document.getElementById('modal')) closeModalDirect();
+function showViewMode() {
+  editMode = false;
+  document.getElementById('modal-view-mode').style.display = 'block';
+  document.getElementById('modal-edit-mode').style.display = 'none';
+  document.getElementById('modal-save-btn').style.display = 'none';
+  document.getElementById('modal-notes-btn').style.display = 'block';
+  document.getElementById('edit-toggle-btn').textContent = 'Edit Post';
 }
 
-function closeModalDirect() {
-  document.getElementById('modal').classList.remove('open');
-  document.body.style.overflow = '';
-  currentPostId = null;
+function showEditMode() {
+  const post = posts.find(p => p.id === currentPostId);
+  if (!post) return;
+  editMode = true;
+  document.getElementById('edit-title').value = post.title;
+  document.getElementById('edit-hook').value = post.hook;
+  document.getElementById('edit-draft').value = post.draft;
+  document.getElementById('modal-view-mode').style.display = 'none';
+  document.getElementById('modal-edit-mode').style.display = 'block';
+  document.getElementById('modal-save-btn').style.display = 'block';
+  document.getElementById('modal-notes-btn').style.display = 'none';
+  document.getElementById('edit-toggle-btn').textContent = 'Cancel Edit';
+}
+
+function toggleEditMode() {
+  if (editMode) showViewMode();
+  else showEditMode();
+}
+
+function savePostEdits() {
+  if (!currentPostId) return;
+  const idx = posts.findIndex(p => p.id === currentPostId);
+  if (idx === -1) return;
+  posts[idx].title = document.getElementById('edit-title').value.trim() || posts[idx].title;
+  posts[idx].hook = document.getElementById('edit-hook').value.trim() || posts[idx].hook;
+  posts[idx].draft = document.getElementById('edit-draft').value.trim() || posts[idx].draft;
+  savePosts(posts);
+  showToast('Post saved');
+  closeModalDirect();
+  renderPosts();
+  renderCalendar();
 }
 
 function saveNotes() {
   if (!currentPostId) return;
-  const notes = getNotes();
-  notes[currentPostId] = document.getElementById('modal-notes').value;
-  saveNotesState(notes);
+  const idx = posts.findIndex(p => p.id === currentPostId);
+  if (idx === -1) return;
+  posts[idx].notes = document.getElementById('modal-notes').value;
+  savePosts(posts);
+  showToast('Notes saved');
   closeModalDirect();
+}
+
+function deletePostFromModal() {
+  if (!currentPostId) return;
+  const post = posts.find(p => p.id === currentPostId);
+  if (!post || !post.custom) return;
+  if (!confirm('Delete this post?')) return;
+  posts = posts.filter(p => p.id !== currentPostId);
+  savePosts(posts);
+  const posted = getPostedState();
+  delete posted[currentPostId];
+  savePostedState(posted);
+  showToast('Post deleted');
+  closeModalDirect();
+  renderPosts();
+  renderCalendar();
 }
 
 function togglePostedFromModal() {
@@ -1074,12 +1151,146 @@ function togglePostedFromModal() {
   closeModalDirect();
 }
 
+function closeModal(e) {
+  if (e.target === document.getElementById('modal')) closeModalDirect();
+}
+
+function closeModalDirect() {
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow = '';
+  currentPostId = null;
+  editMode = false;
+}
+
+// ── ADD NEW POST ───────────────────────────────────────────────
+function addNewPost() {
+  const dateVal = document.getElementById('new-date').value;
+  const type = document.getElementById('new-type').value;
+  const title = document.getElementById('new-title').value.trim();
+  const hook = document.getElementById('new-hook').value.trim();
+  const draft = document.getElementById('new-draft').value.trim();
+
+  if (!dateVal || !title || !hook) {
+    showToast('Date, title, and hook are required');
+    return;
+  }
+
+  const d = new Date(dateVal + 'T12:00:00');
+  const dateLabel = d.toLocaleDateString('en-US', { weekday: 'short', month: 'long', day: 'numeric' });
+  const newId = Date.now();
+
+  const newPost = { id: newId, date: dateVal, dateLabel, type, title, hook, draft: draft || '', notes: '', custom: true };
+  posts.push(newPost);
+  savePosts(posts);
+  showToast('Post added to schedule');
+  clearAddForm();
+  renderPosts();
+}
+
+function clearAddForm() {
+  document.getElementById('new-date').value = '';
+  document.getElementById('new-title').value = '';
+  document.getElementById('new-hook').value = '';
+  document.getElementById('new-draft').value = '';
+}
+
+// ── BRAINSTORM ────────────────────────────────────────────────
+const TYPES = ['question','story','human','article'];
+const TYPE_LABELS = { question:'Question Posts', story:'Story / Insight', human:'Human Posts', article:'LinkedIn Articles' };
+
+function renderBrainstorm() {
+  const ideas = getIdeas();
+  const board = document.getElementById('brainstorm-board');
+  board.innerHTML = '';
+
+  TYPES.forEach(type => {
+    const section = document.createElement('div');
+    section.className = 'brainstorm-section';
+
+    const header = document.createElement('div');
+    header.className = 'brainstorm-header';
+    header.innerHTML = `<div class="brainstorm-title ${type}">${TYPE_LABELS[type]}</div>`;
+    section.appendChild(header);
+
+    const list = document.createElement('div');
+    list.className = 'idea-list';
+
+    (ideas[type] || []).forEach((idea, idx) => {
+      const card = document.createElement('div');
+      card.className = `idea-card ${type}`;
+      card.innerHTML = `
+        <div class="idea-text">${idea}</div>
+        <div class="idea-actions">
+          <button class="btn btn-primary-sm" onclick="promoteIdea('${type}', ${idx})">Schedule</button>
+          <button class="btn btn-danger" onclick="deleteIdea('${type}', ${idx})">✕</button>
+        </div>
+      `;
+      list.appendChild(card);
+    });
+
+    section.appendChild(list);
+
+    // Add idea input
+    const inputRow = document.createElement('div');
+    inputRow.className = 'idea-input-row';
+    inputRow.innerHTML = `
+      <textarea class="form-textarea" id="idea-input-${type}" placeholder="Drop an idea for a ${TYPE_LABELS[type].toLowerCase()} post..." rows="2"></textarea>
+      <button class="btn btn-primary-sm" style="flex-shrink:0;" onclick="addIdea('${type}')">Add</button>
+    `;
+    section.appendChild(inputRow);
+
+    board.appendChild(section);
+  });
+}
+
+function addIdea(type) {
+  const input = document.getElementById(`idea-input-${type}`);
+  const text = input.value.trim();
+  if (!text) return;
+  const ideas = getIdeas();
+  ideas[type].push(text);
+  saveIdeas(ideas);
+  input.value = '';
+  renderBrainstorm();
+  showToast('Idea saved');
+}
+
+function deleteIdea(type, idx) {
+  const ideas = getIdeas();
+  ideas[type].splice(idx, 1);
+  saveIdeas(ideas);
+  renderBrainstorm();
+}
+
+function promoteIdea(type, idx) {
+  const ideas = getIdeas();
+  const text = ideas[type][idx];
+  // Switch to Add Post tab and pre-fill
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.tab')[3].classList.add('active');
+  document.getElementById('view-add').classList.add('active');
+  document.getElementById('new-type').value = type;
+  document.getElementById('new-hook').value = text;
+  document.getElementById('new-title').focus();
+  showToast('Idea moved to Add Post — fill in the details');
+}
+
+// ── CALENDAR ──────────────────────────────────────────────────
 function renderCalendar() {
   const grid = document.getElementById('calendar-grid');
   grid.innerHTML = '';
   const posted = getPostedState();
-  const startDay = 1; // June 2026 starts on Monday
-  const daysInMonth = 30;
+
+  // Build month map from all posts
+  const months = [...new Set(posts.map(p => p.date.substring(0,7)))].sort();
+  if (!months.length) return;
+
+  // Just show the first/current month for now — June 2026
+  const targetMonth = '2026-06';
+  const firstDay = new Date(targetMonth + '-01T12:00:00');
+  const startDay = firstDay.getDay();
+  const daysInMonth = new Date(firstDay.getFullYear(), firstDay.getMonth() + 1, 0).getDate();
 
   for (let i = 0; i < startDay; i++) {
     const empty = document.createElement('div');
@@ -1088,30 +1299,132 @@ function renderCalendar() {
   }
 
   for (let day = 1; day <= daysInMonth; day++) {
-    const dateStr = `2026-06-${String(day).padStart(2, '0')}`;
+    const dateStr = `${targetMonth}-${String(day).padStart(2,'0')}`;
     const cell = document.createElement('div');
     cell.className = 'cal-cell';
-
-    const dateLabel = document.createElement('div');
-    dateLabel.className = 'cal-date';
-    dateLabel.textContent = day;
-    cell.appendChild(dateLabel);
+    const dl = document.createElement('div');
+    dl.className = 'cal-date';
+    dl.textContent = day;
+    cell.appendChild(dl);
 
     posts.filter(p => p.date === dateStr).forEach(p => {
-      const postEl = document.createElement('div');
-      postEl.className = `cal-post ${p.type} ${posted[p.id] ? 'posted' : ''}`;
-      postEl.innerHTML = `<div class="cal-post-type">${p.type}</div>${p.title.split(' — ')[0]}`;
-      postEl.onclick = () => openModal(p.id);
-      cell.appendChild(postEl);
+      const el = document.createElement('div');
+      el.className = `cal-post ${p.type} ${posted[p.id] ? 'posted' : ''}`;
+      el.innerHTML = `<div class="cal-post-type">${p.type}</div>${p.title.split(' — ')[0]}`;
+      el.onclick = () => openModal(p.id);
+      cell.appendChild(el);
     });
 
     grid.appendChild(cell);
   }
 }
 
-// Keyboard close
-document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
+// ── TOAST ─────────────────────────────────────────────────────
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
 
+// ── RESEARCH ──────────────────────────────────────────────────
+let activeSub = 'personalfinance';
+
+function selectSub(sub, el) {
+  activeSub = sub;
+  document.querySelectorAll('.sub-tag').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  fetchReddit();
+}
+
+async function fetchReddit() {
+  const sort = document.getElementById('research-sort').value;
+  const container = document.getElementById('research-results');
+  container.innerHTML = `<div class="research-loading"><span class="spinner"></span>Loading r/${activeSub}...</div>`;
+
+  const redditUrl = `https://www.reddit.com/r/${activeSub}/${sort}.json?limit=25&t=week&raw_json=1`;
+
+  // Multiple proxies to try in order
+  const proxies = [
+    url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    url => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`,
+    url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+  ];
+
+  let data = null;
+
+  for (const makeProxy of proxies) {
+    try {
+      const res = await fetch(makeProxy(redditUrl), { signal: AbortSignal.timeout(8000) });
+      if (!res.ok) continue;
+      const raw = await res.text();
+      // allorigins wraps in {contents:...}, others return raw JSON
+      let parsed;
+      try {
+        const outer = JSON.parse(raw);
+        parsed = outer.contents ? JSON.parse(outer.contents) : outer;
+      } catch { continue; }
+      if (parsed?.data?.children?.length) { data = parsed; break; }
+    } catch { continue; }
+  }
+
+  if (!data) {
+    container.innerHTML = `
+      <div class="research-empty">
+        Couldn't reach Reddit right now.<br><br>
+        <a href="https://www.reddit.com/r/${activeSub}/${sort}/?t=week" target="_blank" rel="noopener" style="color:var(--olive-light);">Open r/${activeSub} directly →</a>
+      </div>`;
+    return;
+  }
+
+  const posts = data.data.children
+    .map(p => p.data)
+    .filter(p => !p.stickied && p.title && p.title.length > 20)
+    .slice(0, 20);
+
+  if (!posts.length) {
+    container.innerHTML = `<div class="research-empty">No posts found. Try a different sort or subreddit.</div>`;
+    return;
+  }
+
+  container.innerHTML = '';
+  posts.forEach(post => {
+    const card = document.createElement('div');
+    card.className = 'research-card';
+    const score = post.score >= 1000 ? `${(post.score/1000).toFixed(1)}k` : post.score;
+    const comments = post.num_comments >= 1000 ? `${(post.num_comments/1000).toFixed(1)}k` : post.num_comments;
+    const isQuestion = post.title.includes('?');
+    card.innerHTML = `
+      <div class="research-card-top">
+        <div class="research-title">${post.title}</div>
+        <div class="research-actions">
+          <button class="btn btn-primary-sm" onclick="sendToIdea('${escapeAttr(post.title)}', 'question')">+ Idea</button>
+          <a href="https://reddit.com${post.permalink}" target="_blank" rel="noopener" class="btn">View</a>
+        </div>
+      </div>
+      <div class="research-meta">
+        <span class="research-sub">r/${activeSub}</span>
+        <span class="research-score">▲ ${score} · ${comments} comments${isQuestion ? ' · ❓' : ''}</span>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function escapeAttr(str) {
+  return str.replace(/'/g, "\\'").replace(/"/g, '&quot;').substring(0, 200);
+}
+
+function sendToIdea(title, type) {
+  const ideas = getIdeas();
+  if (!ideas[type]) ideas[type] = [];
+  ideas[type].push(title);
+  saveIdeas(ideas);
+  showToast('Added to Brainstorm board');
+}
+
+// ── INIT ──────────────────────────────────────────────────────
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModalDirect(); });
 renderPosts();
 renderCalendar();
 </script>
